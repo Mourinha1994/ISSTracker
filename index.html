@@ -6,19 +6,7 @@
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
    crossorigin=""/>
-        <style>
-            @import url('https://fonts.googleapis.com/css?family=Khand|Orbitron&display=swap');
-
-            #map {
-                height: 500px;
-             }
-
-             h1 { font-family: 'Orbitron', sans-serif;}
-
-             p, span {font-family: 'Khand', sans-serif; font-size: 20px; display: inline-flex; margin-right: 10px}
-
-             span { color: red; margin-left: 15px}
-        </style>
+        <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
 
@@ -35,52 +23,6 @@
         integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
         crossorigin=""></script>
 
-        <script>
-                const mymap = L.map('map').setView([0, 0], 1);
-
-                const myIcon = L.icon({
-                    iconUrl: 'xablau.png',
-                    iconsize: [50, 32],
-                    iconAnchor: [25, 16],
-                    popupAnchor: [-3, -76]
-                });
-
-                const marker = L.marker([0, 0], {icon: myIcon}).addTo(mymap); 
-                
-                const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> Contributors';
-
-                const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-
-                const tiles = L.tileLayer(tileUrl, { attribution });
-
-                tiles.addTo(mymap);
-    
-                const api_url = 'https://api.wheretheiss.at/v1/satellites/25544';
-    
-                async function getISS() {
-                    const response = await fetch(api_url)
-                    const data = await response.json();
-    
-                    const { latitude, longitude } = data;
- 
-                    marker.setLatLng([latitude, longitude]);
-    
-                    document.getElementById('lat').textContent = latitude;
-                    document.getElementById('lon').textContent = longitude;
-    
-                    //console.log('Latitude  : ' + latitude);
-                    //console.log('Longitude :' + longitude);
-                }
-    
-                //getISS();
-    
-                updateCoordinatesEverySecond();
-    
-                function updateCoordinatesEverySecond(){
-                    var time = setInterval(getISS, 1000);
-                }
-    
-            </script>
-
+        <script src="js/index.js"></script>
     </body>
 </html>

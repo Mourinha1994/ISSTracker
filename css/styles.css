@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Khand|Orbitron&display=swap');
+
+#map {
+    height: 500px;
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif
+}
+
+p, span {
+    font-family: 'Khand', sans-serif;
+}
+
+span {
+    color: red;
+    margin-left:  15px;
+}
