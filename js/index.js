@@ -1,7 +1,7 @@
 const mymap = L.map('map').setView([0,0], 1)
 
 const myIcon = L.icon({
-    iconUrl: '../iss.png',
+    iconUrl: './iss.png',
     iconSize: [50, 50],
     iconAnchor: [25, 16],
     popupAnchor: [-3 ,-76]
@@ -29,11 +29,7 @@ async function getISSCurrentLocation() {
 }
 
 async function updateLocationEverySecond() {
-    let time = await setInterval(getISSCurrentLocation, 1000)
+    let time = await setInterval(getISSCurrentLocation, 2000)
 }
-
-function start() {
-    updateLocationEverySecond()
-}
-
-start()
+    
+updateLocationEverySecond()
