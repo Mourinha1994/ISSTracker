@@ -29,7 +29,7 @@ async function getISSCurrentLocation() {
 }
 
 async function updateLocationEverySecond() {
-    let time = await setInterval(getISSCurrentLocation, 2000)
+    let time = await setInterval(getISSCurrentLocation, 1000)
 }
     
 updateLocationEverySecond()
